@@ -1,15 +1,10 @@
 import { DappKitResponseStatus } from '@celo/utils'
-import { ErrorBoundary } from '@sentry/react'
 import React, { Suspense } from 'react'
 import { Route, Switch, useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 
 import Header from '../components/Header'
-import Polling from '../components/Header/Polling'
-import Popups from '../components/Popups'
-import DarkModeQueryParamReader from '../theme/DarkModeQueryParamReader'
 import { getMobileOperatingSystem, Mobile } from '../utils/mobile'
-import ProvideLiquidity from './ProvideLiquidity'
 import Zap from './Zap'
 import { RedirectPathToZapOnly } from './Zap/redirects'
 
@@ -88,25 +83,17 @@ export default function App() {
   }, [location])
   return (
     <Suspense fallback={null}>
-      <Route component={DarkModeQueryParamReader} />
       <AppWrapper>
-        <ConstructionBanner>
-          Warning: Revo&apos;s smart contracts are pending full audits. Please use with caution!
-        </ConstructionBanner>
         <HeaderWrapper>
           <Header />
         </HeaderWrapper>
         <BodyWrapper>
-          <Popups />
-          <Polling />
-          <ErrorBoundary fallback={<p>An unexpected error occured on this part of the page. Please reload.</p>}>
+          <div>
             <Switch>
               <Route exact strict path="/zap" component={Zap} />
-              <Route exact strict path="/pool" component={ProvideLiquidity} />
               <Route component={RedirectPathToZapOnly} />
             </Switch>
-          </ErrorBoundary>
-          <Marginer />
+          </div>
         </BodyWrapper>
       </AppWrapper>
     </Suspense>

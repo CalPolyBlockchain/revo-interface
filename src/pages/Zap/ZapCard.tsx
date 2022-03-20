@@ -7,7 +7,6 @@ import CurrencyLogo from 'components/CurrencyLogo'
 import Loader from 'components/Loader'
 import QuestionHelper from 'components/QuestionHelper'
 import Row, { AutoRow, RowBetween, RowFixed } from 'components/Row'
-import Slider from 'components/Slider'
 import { useToken } from 'hooks/Tokens'
 import { ApprovalState } from 'hooks/useApproveCallback'
 import { FarmBotSummary } from 'pages/Compound/useFarmBotRegistry'
@@ -294,7 +293,6 @@ export const ZapCard: React.FC<Props> = ({ farmBotSummary }: Props) => {
                         {zapOutPercentage}%
                       </Text>
                     </Row>
-                    <Slider value={zapOutPercentage} onChange={setZapOutPercentage} />
                     <RowBetween>
                       {zapOutPercentages.map((percentage) => (
                         <MaxButton key={percentage} onClick={() => setZapOutPercentage(percentage)} width="25%">

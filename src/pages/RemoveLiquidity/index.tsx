@@ -20,7 +20,6 @@ import DoubleCurrencyLogo from '../../components/DoubleLogo'
 import { AddRemoveTabs } from '../../components/NavigationTabs'
 import { MinimalPositionCard } from '../../components/PositionCard'
 import Row, { RowBetween, RowFixed } from '../../components/Row'
-import Slider from '../../components/Slider'
 import { Dots } from '../../components/swap/styleds'
 import TransactionConfirmationModal, { ConfirmationModalContent } from '../../components/TransactionConfirmationModal'
 import { ROUTER_ADDRESS } from '../../constants'
@@ -366,7 +365,6 @@ export default function RemoveLiquidity({
                 </Row>
                 {!showDetailed && (
                   <>
-                    <Slider value={innerLiquidityPercentage} onChange={setInnerLiquidityPercentage} />
                     <RowBetween>
                       <MaxButton onClick={() => onUserInput(Field.LIQUIDITY_PERCENT, '25')} width="20%">
                         25%

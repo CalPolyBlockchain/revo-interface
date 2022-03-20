@@ -10,8 +10,7 @@ import { useTokenBalance } from 'state/wallet/hooks'
 import styled from 'styled-components'
 import { borderRadius } from 'theme'
 
-import Icon from '../../assets/images/revo-logo.png'
-import Menu from '../Menu'
+import Icon from '../Icon'
 import { RowFixed } from '../Row'
 import Web3Status from '../Web3Status'
 
@@ -230,14 +229,8 @@ export default function Header() {
     <HeaderFrame>
       <HeaderRow>
         <Title to="/">
-          <Logo src={Icon} alt="Revo.Finance" />
+          <Icon />
         </Title>
-        <StyledNavLink id="swap-nav-link" to="/zap">
-          {t('headerZap')}
-        </StyledNavLink>
-        <StyledNavLink id="compound-nav-link" to="/pool">
-          {t('headerPool')}
-        </StyledNavLink>
       </HeaderRow>
       <HeaderControls>
         <HeaderElement>
@@ -256,9 +249,9 @@ export default function Header() {
             <Web3Status />
           </AccountElement>
         </HeaderElement>
-        <HeaderElementWrap>
+        {/* <HeaderElementWrap>
           <Menu />
-        </HeaderElementWrap>
+        </HeaderElementWrap> */}
       </HeaderControls>
     </HeaderFrame>
   )

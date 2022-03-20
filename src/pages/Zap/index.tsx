@@ -8,10 +8,9 @@ import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
-import { AutoColumn, ColumnCenter } from '../../components/Column'
-import { CardNoise, CardSection, DataCard } from '../../components/earn/styled'
+import { ColumnCenter } from '../../components/Column'
+import { DataCard } from '../../components/earn/styled'
 import { RowBetween } from '../../components/Row'
-import { TYPE } from '../../theme'
 
 const VoteCard = styled(DataCard)`
   overflow: hidden;
@@ -36,7 +35,7 @@ const PoolWrapper = styled.div`
 const Header: React.FC = ({ children }) => {
   return (
     <DataRow style={{ alignItems: 'baseline', marginBottom: '12px' }}>
-      <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>{children}</TYPE.mediumHeader>
+      {/* <TYPE.mediumHeader style={{ marginTop: '0.5rem' }}>{children}</TYPE.mediumHeader> */}
     </DataRow>
   )
 }
@@ -71,7 +70,6 @@ export default function Zap() {
       <ColumnCenter>{farmbotFarmSummaries.length === 0 && <Loader size="48px" />}</ColumnCenter>
       {stakedFarms.length > 0 && (
         <>
-          <Header>{t('yourPools')}</Header>
           {stakedFarms.map((farmSummary) => (
             <PoolWrapper key={farmSummary.address}>
               <ErrorBoundary>
@@ -83,24 +81,6 @@ export default function Zap() {
       )}
       {unstakedFarms.length > 0 && (
         <>
-          <VoteCard>
-            <CardNoise />
-            <CardSection>
-              <AutoColumn gap="md">
-                <RowBetween>
-                  <TYPE.white fontWeight={600}>{t('zapInEdu')}</TYPE.white>
-                </RowBetween>
-                <RowBetween>
-                  <TYPE.white fontSize={14}>
-                    {t('zapInEduDesc')}
-                    <a href="https://docs.revo.market/">{t('here')}</a>
-                  </TYPE.white>
-                </RowBetween>
-              </AutoColumn>
-            </CardSection>
-            <CardNoise />
-          </VoteCard>
-          <Header>{t('availablePools')}</Header>
           {unstakedFarms.map((farmSummary) => (
             <PoolWrapper key={farmSummary.address}>
               <ErrorBoundary>

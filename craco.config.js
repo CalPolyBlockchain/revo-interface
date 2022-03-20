@@ -3,6 +3,11 @@ const SentryWebpackPlugin = require('@sentry/webpack-plugin')
 const now = Math.floor(new Date().getTime() / 1000)
 
 module.exports = {
+  style: {
+    postcss: {
+      plugins: [require("tailwindcss"), require("autoprefixer")],
+    },
+  },
   webpack: {
     plugins: {
       add: process.env.SENTRY_AUTH_TOKEN
